@@ -44,14 +44,7 @@ export default function App() {
   return (
     <>
       <Toaster position='top-right' />
-      <SearchBar
-        action={(formData) => {
-          const query = formData.get('query');
-          if (typeof query === 'string') {
-            handleSearch(query);
-          }
-        }}
-      />
+      <SearchBar onSubmit={handleSearch} />
 
       {loading && <Loader />}
 
@@ -60,6 +53,7 @@ export default function App() {
       {!loading && !error && movies.length > 0 && (
         <MovieGrid movies={movies} onSelect={handleSelect} />
       )}
+
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={handleClose} />
       )}
