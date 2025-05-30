@@ -22,5 +22,3 @@ export const fetchMovies = async (query: string): Promise<Movie[]> => {
 
   return response.data.results;
 };
-
-console.log('TMDB Token:', import.meta.env.VITE_TMDB_TOKEN);
